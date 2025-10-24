@@ -6,7 +6,7 @@ wosi = get_world_size()
 change_hat(Hats.Dinosaur_Hat)
 bones = set() # coord-list unsorted, can been "searched"
 bone_list = [] # coord-list in order, remove first entry, if len > bone_length, append new location
-bone_length = 1 # Start with 2 "possible bones", increase by one everytime apple been eaten
+bone_length = 2 # Start with 2 "possible bones", increase by one everytime apple been eaten
 
 def update(x,y):
 	if len(bones) >= bone_length:
@@ -25,7 +25,7 @@ def smove(dir, step2 = False):
 
 applex, appley = 0,0
 mx, my = get_pos_x(), get_pos_y()
-on_apple = applex == mx and appley == my
+on_apple = False
 
 while True:
 	if (applex == mx and appley == my):
