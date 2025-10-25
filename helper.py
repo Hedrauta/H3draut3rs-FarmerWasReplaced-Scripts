@@ -35,3 +35,13 @@ def goto(x = 0,y = 0):
 			xmove(South,my-y)
 	else:
 		pass
+def reverse_set(gset):
+	cachel = []
+	for item in gset:
+		cachel.insert(0, item)
+	cache = set()
+	for item in cachel:
+		cache.add(item)
+	return(cache)
+def xor(a,b):
+	return a != b

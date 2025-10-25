@@ -39,6 +39,7 @@ def ensure_health():
 			mx,my = get_pos_x(),get_pos_y()
 			if get_entity_type() != Entities.Pumpkin:
 				dpump.add((mx,my))
+				plant(Entities.Pumpkin)
 			if y < 5:
 				if (x+1) % 2:
 					move(North)
