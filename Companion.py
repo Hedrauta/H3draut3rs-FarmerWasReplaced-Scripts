@@ -23,6 +23,8 @@ while True:
 		hc = (Entities.Grass,(0,0))
 		fl = False
 	cc = get_companion()
+	quick_print("hc: ",hc)
+	quick_print("cc: ",cc)
 	goto(cc[1][0],cc[1][1])
 	water = get_water()
 	if water < 0.01:
