@@ -2,14 +2,14 @@ from __builtins__ import *
 from helper import *
 change_hat(Hats.Pumpkin_Hat)
 wosi = get_world_size() #WOrldSize
-bla = wosi//6
-nofili = (wosi-bla-1)//6 #Number Of FIelds in a LIne
+bla = wosi//7
+nofili = (wosi-bla)//7 #Number Of FIelds in a LIne
 #nofi = nofili**2 #Number Of FIelds
 # Todo: Multidrones
 def ppump():
 	homex, homey = get_pos_x(), get_pos_y()
-	for x in range(6):
-		for y in range(6):
+	for x in range(7):
+		for y in range(7):
 			water = get_water()
 			if water < 0.01:
 				use_item(Items.Water, 4)
@@ -23,7 +23,7 @@ def ppump():
 				plant(Entities.Pumpkin)
 			elif get_entity_type() != Entities.Pumpkin:
 				plant(Entities.Pumpkin)
-			if y < 5:
+			if y < 6:
 				if (x+1) % 2:
 					move(North)
 				else:
@@ -34,13 +34,13 @@ def ppump():
 def ensure_health():
 	homex, homey = get_pos_x(), get_pos_y()
 	dpump = set()
-	for x in range(6):
-		for y in range(6):
+	for x in range(7):
+		for y in range(7):
 			mx,my = get_pos_x(),get_pos_y()
 			if get_entity_type() != Entities.Pumpkin:
 				dpump.add((mx,my))
 				plant(Entities.Pumpkin)
-			if y < 5:
+			if y < 6:
 				if (x+1) % 2:
 					move(North)
 				else:
@@ -70,11 +70,11 @@ def logic():
 		goto()
 		while num_drones() < max_drones():
 			spawn_drone(logic)
-			for i in range(20):
+			for i in range(50):
 				pass
 	drowo = drone - 1
-	drofix = (drowo // nofili) * 7
-	drofiy = (drowo % nofili) * 7
+	drofix = (drowo // nofili) * 8
+	drofiy = (drowo % nofili) * 8
 	goto(drofix,drofiy)
 	while True:
 		ppump()

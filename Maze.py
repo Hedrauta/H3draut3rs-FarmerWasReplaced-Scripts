@@ -3,8 +3,8 @@ from helper import *
 si = get_world_size()
 num = num_unlocked(Unlocks.Mazes)
 ws = si*2**(num-1)
-set_world_size(22)
-From = Direction
+set_world_size(32)
+From = ""
 im = {From:None}
 
 opposite_of = {North:South, South:North, West:East, East:West}
@@ -19,8 +19,9 @@ while True:
 	he = get_entity_type() != Entities.Hedge
 	tr = get_entity_type() != Entities.Treasure
 	if not ((he or tr) and not (he and tr)):
-		goto(0,0)
+		goto(si//2,si//2)
 		#startup
+		use_item(Items.Water,4)
 		plant(Entities.Bush)
 		while not can_harvest():
 			pass
@@ -177,7 +178,7 @@ while True:
 				elif can_move(left_of[im[From]]):
 					move(left_of[im[From]])
 				else:
-					lava.add(mx,my)
+					lava.add((mx,my))
 					move(opposite_of[im[From]])
 					
 
@@ -205,16 +206,10 @@ while True:
 				move(West)
 				im[From] = East
 			else:
-				if (mx-1,my) in lava and (mx,my-1) in lava and (mx+1,my) in lava and (mx,my+1) in lava:
-					da = set()
-					va = set()
-					lava = set()
+				da = set()
+				va = set()
+				lava = set()
 				
 			
 			
-	if loop < 10:
-		loop = loop+1
-		use_item(Items.Weird_Substance, ws)
-	else:
-		harvest()
-		break
+	harvest()
