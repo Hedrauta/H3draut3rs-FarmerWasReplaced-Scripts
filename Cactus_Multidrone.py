@@ -4,11 +4,10 @@ from helper import *
 si = get_world_size()
 goto(0,0)
 fert = False
-# TODO: Multidrone, wosi/maxdrone logic, vert und horizontal movement sorting,
-# NOTE: after plant, spawn drones, do sort, if numdrones == 32 behave as master and sort nort and east pos
-# TODO: Planting vert multidrone
 # NOTE: only works on 32 drones
-
+def wait(sec = 263):
+	for i in range(sec):
+		pass
 def drplant():
 	sird = 0
 	md = max_drones()
@@ -32,63 +31,54 @@ def drplant():
 	#rework here:
 def sort():
 	sorted = False
-	ws = 200
+	sortwe = False
+	sortea = False
 	while not sorted:
 		sorted = True
+		sortwe = True
+		sortea = True
 		for y in range(32):
-			ce = measure()
-			we = 0
-			ea = 99
-			no = 99
-			so = 0
-			if get_pos_x() < 31:
-				ea = measure(East)
-			if get_pos_x() > 0:
-				we = measure()
-			if get_pos_y() < 31:
-				no = measure(North)
-			if get_pos_y() > 0:
-				so = measure(South)
-			if we > ce:
-				sorted = False
-				while not swap(West):
-					pass
-				if we > ea:
-					while not swap(East):
-						pass
-			elif ce > ea:
-				sorted = False
-				while not swap(East):
-					pass
-				if we > ea:
-					while not swap(West):
-						pass
-			ce = measure()
-			if so > ce:
-				sorted = False
-				while not swap(South):
-					pass
-				if so > no:
-					while not swap(North):
-						pass
-			elif ce > no:
-				sorted = False
-				while not swap(North):
-					pass
-				if so > no:
-					while not swap(South):
-						pass
+			if measure() != None:
+				mx,my = get_pos_x(),get_pos_y()
+				# quick_print((mx,my),measure(),(measure(South), measure(North)), (measure(West), measure(East)))
+				if measure(West) > measure() and mx > 0:
+					#quick_print((mx,my),measure(),(measure(West), measure(East)))
+					swap(West)
+					sorted = False
+					sortwe = False
+					if measure() > measure(East) and mx < 31:
+						swap(East)
+				if measure() > measure(East) and mx < 31:
+					#quick_print((mx,my),measure(),(measure(West), measure(East)))
+					swap(East)
+					sorted = False
+					sortea = False
+					if measure(West) > measure() and mx > 0:
+						swap(West)
+				if measure(South) > measure() and my > 0:
+					#quick_print((mx,my),measure(),(measure(South), measure(North)))
+					swap(South)
+					sorted = False
+					if measure() > measure(North) and my < 31:
+						swap(North)
+				if measure() > measure(North) and my < 31:
+					#quick_print((mx,my),measure(),(measure(South), measure(North)))
+					swap(North)
+					sorted = False
+					if measure(South) > measure() and y > 0:
+						swap(South)
 			move(North)
 		if not sorted and num_drones() < 30:
-			if get_pos_x() > 0:
+			if get_pos_x() > 1 and not sortwe:
 				move(West)
 				spawn_drone(sort)
 				move(East)
-			if get_pos_x() < 31:
+				wait()
+			if get_pos_x() < 30 and not sortea:
 				move(East)
 				spawn_drone(sort)
-				xmove(West,2)
-				move(East)
+				move(West)
+				wait()
 def run():
 	sird = si//max_drones()
 	for x in range (32):
@@ -98,13 +88,15 @@ def run():
 	goto()
 	for x in range(32):
 		move(East)
+		wait()
 		spawn_drone(sort)
 	sort()
 
 if __name__ == "__main__":
+	a = num_items(Items.Cactus)
 	run()
 	while num_drones() > 1:
 		pass
 	goto()
 	harvest()
-	quick_print(num_items(Items.Cactus))
+	quick_print("yield: ", num_items(Items.Cactus) - a)
