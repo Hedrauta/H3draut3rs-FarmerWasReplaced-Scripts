@@ -68,7 +68,7 @@ def sort():
 					if measure(South) > measure() and y > 0:
 						swap(South)
 			move(North)
-		if not sorted and num_drones() < 30:
+		if not sorted and num_drones() < 4:
 			if get_pos_x() > 1 and not sortwe:
 				move(West)
 				spawn_drone(sort)
