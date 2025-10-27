@@ -1,8 +1,12 @@
 from helper import *
-testruns = 150
+testruns = 100
 testtime = list()
+seed = 0
+clear()
 for i in range(testruns):
-	runtime = simulate("Cactus_Multidrone", Unlocks, {Items.Pumpkin:10000000, Items.Power:500000, Items.Water:2000000}, {}, -1, 50)
+	seed += 1
+	quick_print("#",i,"Seed:", seed)
+	runtime = simulate("Cactus_Multidrone", Unlocks, {Items.Pumpkin:10000000, Items.Power:500000, Items.Water:2000000}, {}, seed, 100)
 	testtime.append(runtime)
 test_time_total = 0
 for i in range(testruns):
