@@ -1,4 +1,5 @@
 from helper import *
+change_hat(Hats.Sunflower_Hat)
 goto(0,0)
 tct = num_items(Items.Power)
 while True:
