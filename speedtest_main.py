@@ -1,12 +1,12 @@
 from helper import *
-testruns = 100
+testruns = 1000
 testtime = list()
 seed = 0
 clear()
 for i in range(testruns):
-	seed += 1
+	seed = (random()*(2**32))//1
 	quick_print("#",i,"Seed:", seed)
-	runtime = simulate("Cactus_Multidrone", Unlocks, {Items.Pumpkin:10000000, Items.Power:500000, Items.Water:2000000}, {}, seed, 100)
+	runtime = simulate("Cactus_Multidrone", Unlocks, {Items.Pumpkin:10000000, Items.Power:500000, Items.Water:2000000}, {}, seed, 10000)
 	testtime.append(runtime)
 test_time_total = 0
 for i in range(testruns):

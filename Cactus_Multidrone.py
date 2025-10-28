@@ -70,15 +70,11 @@ def sort():
 			move(North)
 		if not sorted and num_drones() < 4:
 			if get_pos_x() > 1 and not sortwe:
-				move(West)
-				spawn_drone(sort)
-				move(East)
-				wait()
+				move (West)
 			if get_pos_x() < 30 and not sortea:
-				move(East)
+				xmove(East,2)
 				spawn_drone(sort)
-				move(West)
-				wait()
+				xmove(West,2)
 def run():
 	sird = si//max_drones()
 	for x in range (32):
