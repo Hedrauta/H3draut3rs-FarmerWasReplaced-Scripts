@@ -7,7 +7,7 @@ def mkgrass():
 def xmove(Direction = North, Steps = 0):
 	for i in range(Steps):
 		move(Direction)
-def goto(x = 0,y = 0):
+def goto(x=0,y=0):
 	si = get_world_size()
 	mx = get_pos_x()
 	my = get_pos_y()
@@ -45,3 +45,8 @@ def reverse_set(gset):
 	return(cache)
 def xor(a,b):
 	return a != b
+
+def sd_arg(fn, arg):
+	def mitm():
+		return fn(arg)
+	return spawn_drone(mitm)
