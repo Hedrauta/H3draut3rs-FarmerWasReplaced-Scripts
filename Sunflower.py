@@ -1,8 +1,9 @@
 from __builtins__ import *
 from helper import *
-change_hat(Hats.Sunflower_Hat)
+change_hat(Hats.Golden_Sunflower_Hat)
 goto(31,0)
-tct = num_items(Items.Power)
+ti = num_items(Items.Power)
+tt = get_time()
 while True:
 	sunflowers = dict()
 	for i in range(15,6,-1):
@@ -50,4 +51,7 @@ while True:
 				pass
 	while num_drones() > 1:
 		pass
-		
+	#quick_print("Yield:", num_items(Items.Power) -ti)
+	#ti = num_items(Items.Power)
+	#quick_print("Time:", get_time() - tt)
+	#tt = get_time()
