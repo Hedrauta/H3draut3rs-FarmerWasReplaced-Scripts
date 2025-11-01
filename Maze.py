@@ -1,215 +1,74 @@
 from __builtins__ import *
 from helper import *
+set_world_size(32)
 si = get_world_size()
 num = num_unlocked(Unlocks.Mazes)
 ws = si*2**(num-1)
-set_world_size(32)
-From = ""
-im = {From:None}
+goto()
 
-opposite_of = {North:South, South:North, West:East, East:West}
-left_of = {North:West, West:South, South:East, East:North}
-right_of = {North:East, East:South, South:West, West:North}
 
-loop = 1
+From = "South"
+loop = 0
+other_dirs_of = {North: (South, East, West), South: (North, East, West), East: (North, South, West), West: (North, South, East)}
+val_other_dirs = {North:({"x":0,"y":-1}, {"x":1,y:0}, {"x":-1,"y":0}), South: ({"x":0,"y":1}, {"x":1,"y":0}, {"x":-1,"y":0}), East: ({"x":0,"y":1}, {"x":0,"y":-1}, {"x":-1,"y":0}), West: ({"x":0,"y":1},{"x":0,"y":-1},{"x":1,"y":0})}
+opposite_of = {"North": South, "South": North, "East":West, "West": East}
+(treasurex,treasurey) = (0,0)
+(mx,my) = (get_pos_x(), get_pos_y())
+on_treasure = False
+def maze():
+	use_item(Items.Weird_Substance, ws)
 
-# TODO: Multidrone non-visited
-
-while True:
-	he = get_entity_type() != Entities.Hedge
-	tr = get_entity_type() != Entities.Treasure
-	if not ((he or tr) and not (he and tr)):
-		goto(si//2,si//2)
-		#startup
-		use_item(Items.Water,4)
-		plant(Entities.Bush)
-		while not can_harvest():
-			pass
-		use_item(Items.Weird_Substance, ws)
-		loop = 0
-	# treasure Pos
-	tpx, tpy = measure()
-	# visited area
-	va = set()
+while loop < 300:
+	treasurex, treasurey = measure()
+	on_treasure = treasurex == mx and treasurey == my
+	dead_ends = set()
 	
-	#dead area
-	da = set()
-	
-	#last4 = loop-breaker
-	last = set()
-	# self-lock-breaker
-	lava = set()
-	while not (get_pos_x() == tpx) or not (get_pos_y() == tpy):
-		mx = get_pos_x()
-		my = get_pos_y()
-		if not (mx,my) in va:
-			va.add((mx,my))
-		omn = (not can_move(East) or (((mx+1,my) in da) and can_move(East))) and (not can_move(South) or (((mx,my-1) in da) and can_move(South))) and (not can_move(West) or (((mx-1,my) in da) and can_move(West)))
-		ome = (not can_move(South) or (((mx,my-1) in da) and can_move(South))) and (not can_move(West) or (((mx-1,my) in da) and can_move(West))) and (not can_move(North) or (((mx,my+1) in da) and can_move(North)))
-		oms = (not can_move(West) or (((mx-1,my) in da) and can_move(West))) and (not can_move(North) or (((mx,my+1) in da) and can_move(North))) and (not can_move(East) or (((mx+1,my) in da) and can_move(East)))
-		omw = (not can_move(North) or (((mx,my+1) in da) and can_move(North))) and (not can_move(East) or (((mx+1,my) in da) and can_move(East))) and (not can_move(South) or (((mx,my-1) in da) and can_move(South)))
-		omo = (omn and not (ome or oms or omw)) or (ome and not (oms or omw or omn)) or (oms and not (omw or omn or ome)) or (omw and not (omn or ome or oms))
+	while not on_treasure:
+		tmx, tmy = 0,0
+		mx, my = get_pos_x(), get_pos_y
+		tmx = treasurex - mx
+		tmy = treasurey - my
+
+		def move_x_p():
+			if can_move(East):
+				move(East)
+				From = West
+				return True
+			else:
+				return False
+		def move_x_n():
+			if can_move(West):
+				move(West)
+				From = East
+				return True
+			else:
+				return False
+		def move_y_p():
+			if can_move(North):
+				move(North)
+				From = South
+				return True
+			else:
+				return False
+		def move_y_n():
+			if can_move(South):
+				move(South)
+				From = North
+				return True
+			else:
+				return False
+		def ded(dead, dir_from):
+			n = ()
+			for dir in other_dirs_of[dir_from]:
+				n.append(can_move(dir))
+			n1, n2, n3 = n[0], n[1], n[2]
+			c1, c2, c3 = val_other_dirs[dir_from]
+			nx1,ny1 = mx+c1[x],my+c1[y]
+			nx2,ny2 = mx+c2[x],my+c2[y]
+			nx3,ny3 = mx+c3[x],my+c3[y]
+			if xor(not n1, (n1 and (nx1, ny1) in dead))	and xor(not n2, (n1 and (nx2,ny2) in dead)) and xor(not n3, (n3 and (nx3,ny3) in dead)):
+				dead.add((mx,my))
+				return dead
+			else:
+				return dead
 		
-		lenlast = len(last)
-		last.add((mx,my))
-		if len(last) == lenlast:
-			opx = mx
-			opy = my
-			if im[From] == North:
-				opy = opy + 1
-			elif im[From] == East:
-				opx = opy + 1
-			elif im[From] == South:
-				opy = opy - 1
-			elif im[From] == West:
-				opx = opx - 1
-			da.add((opx,opy))
-			last = set()
-		if omo:
-			da.add((mx,my))
-			if (mx,my) in last:
-					last.remove((mx,my))
-					last = set()
-		if can_move(North) and not im[From] == North and not (mx,my+1) in da:
-			lava = set()
-			if not (mx,my+1) in va and can_move(North):
-				move(North)
-				im[From] = South
-			elif not (mx+1,my) in va and can_move(East):
-				move(East)
-				im[From] = West
-			elif not (mx,my-1) in va and can_move(South):
-				move(South)
-				im[From] = North
-			elif not (mx-1,my) in va and can_move(West):
-				move(West)
-				im[From] = East
-			else:
-				move(North)
-				im[From] = South
-		elif can_move(East) and not im[From] == East and not (mx+1,my) in da:
-			lava = set()
-			if not (mx+1,my) in va and can_move(East):
-				move(East)
-				im[From] = West
-			elif not (mx,my-1) in va and can_move(South):
-				move(South)
-				im[From] = North
-			elif not (mx-1,my) in va and can_move(West):
-				move(West)
-				im[From] = East
-			elif not (mx,my+1) in va and can_move(North):
-				move(North)
-				im[From] = South
-			else:
-				move(East)
-				im[From] = West
-		elif can_move(South) and not im[From] == South and not (mx, my-1) in da:
-			lava = set()
-			if not (mx,my-1) in va and can_move(South):
-				move(South)
-				im[From] = North
-			elif not (mx-1,my) in va and can_move(West):
-				move(West)
-				im[From] = East
-			elif not (mx,my+1) in va and can_move(North):
-				move(North)
-				im[From] = South
-			elif not (mx+1,my) in va and can_move(East):
-				move(East)
-				im[From] = West
-			else:
-				move(South)
-				im[From] = North
-		elif can_move(West) and not im[From] == West and not (mx-1,my) in da:
-			lava = set()
-			if not (mx-1,my) in va and can_move(West):
-				move(West)
-				im[From] = East
-			elif not (mx,my+1) in va and can_move(North):
-				move(North)
-				im[From] = South
-			elif not (mx+1,my) in va and can_move(East):
-				move(East)
-				im[From] = West
-			elif not (mx,my-1) in va and can_move(South):
-				move(South)
-				im[From] = North
-			else:
-				move(West)
-				im[From] = East
-		elif omo:
-			if omn and im[From] == North and not (mx,my+1) in lava:
-				da.add((mx,my))
-				if (mx,my) in last:
-					last.remove((mx,my))
-					last = set()
-					va = set()
-				move(North)
-				im[From] = South
-			elif ome and im[From] == East and not (mx+1,my) in lava:
-				da.add((mx,my))
-				if (mx,my) in last:
-					last.remove((mx,my))
-					last = set()
-					va = set()
-				move(East)
-				im[From] = West
-			elif oms and im[From] == South and not (mx,my-1) in lava:
-				da.add((mx,my))
-				if (mx,my) in last:
-					last.remove((mx,my))
-					last = set()
-					va = set()
-				move(South)
-				im[From] = North
-			elif omw and im[From] == West and not (mx-1,my) in lava:
-				da.add((mx,my))
-				if (mx,my) in last:
-					last.remove((mx,my))
-					last = set()
-				move(West)
-				im[From] = East
-			else:
-				if can_move(opposite_of[im[From]]):
-					move(opposite_of[im[From]])
-				elif can_move(right_of[im[From]]):
-					move(right_of[im[From]])
-				elif can_move(left_of[im[From]]):
-					move(left_of[im[From]])
-				else:
-					lava.add((mx,my))
-					move(opposite_of[im[From]])
-					
-
-		else:
-			print("burnt: ", (mx,my),"Loop: ", loop)
-			print(lava)
-			if can_move(North) and not (mx,my+1) in lava:
-				lava.add((mx,my))
-				lava.add((mx,my+1))
-				move(North)
-				im[From] = South
-			elif can_move(East) and not (mx+1,my) in lava:
-				lava.add((mx,my))
-				lava.add((mx+1,my))
-				move(East)
-				im[From] = West
-			elif can_move(South) and not (mx,my-1) in lava:
-				lava.add((mx,my))
-				lava.add((mx,my-1))
-				move(South)
-				im[From] = North
-			elif can_move(West) and not (mx-1,my) in lava:
-				lava.add((mx,my))
-				lava.add((mx-1,my))
-				move(West)
-				im[From] = East
-			else:
-				da = set()
-				va = set()
-				lava = set()
-				
-			
-			
-	harvest()
