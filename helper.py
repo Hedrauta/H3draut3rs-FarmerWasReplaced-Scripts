@@ -45,7 +45,6 @@ def reverse_set(gset):
 	return(cache)
 def xor(a,b):
 	return a != b
-
 def sd_arg(fn, arg):
 	def mitm():
 		return fn(arg)

@@ -1,4 +1,4 @@
-change_hat(Hats.Brown_Hat)
+clear()
 from __builtins__ import *
 from helper import *
 si = get_world_size()
@@ -87,12 +87,11 @@ def run():
 		wait()
 		spawn_drone(sort)
 	sort()
+	while num_drones() > 1:
+		pass
+	harvest()
 
 if __name__ == "__main__":
 	a = num_items(Items.Cactus)
 	run()
-	while num_drones() > 1:
-		pass
-	goto()
-	harvest()
 	quick_print("yield: ", num_items(Items.Cactus) - a)
