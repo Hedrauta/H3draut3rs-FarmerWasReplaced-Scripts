@@ -1,0 +1,499 @@
+Thread 0 lock 1
+Thread 0 for 1 win 1 by -1 or True at 0
+Thread 0 for 1 win 2 by -1 or True at 1
+Thread 0 for 1 win 3 by -1 or True at 3
+Thread 0 for 1 win 4 by -1 or True at 6
+Thread 0 for 1 win 5 by -1 or True at 10
+Thread 0 for 1 win 6 by -1 or True at 15
+Thread 0 for 1 win 7 by -1 or True at 21
+Thread 0 for 1 win 8 by -1 or True at 28
+Thread 0 for 1 win 9 by -1 or True at 36
+Thread 0 enter 1
+Thread 0 set 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 0 set 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 0 exit
+Thread 0 change
+Thread 0 lock 1
+Thread 0 for 1 win 1 by -1 or True at 0
+Thread 0 for 1 win 2 by -1 or True at 1
+Thread 0 for 1 win 3 by -1 or True at 3
+Thread 0 for 1 win 4 by -1 or True at 6
+Thread 0 for 1 win 5 by -1 or True at 10
+Thread 0 for 1 win 6 by -1 or True at 15
+Thread 0 for 1 win 7 by -1 or True at 21
+Thread 0 for 1 win 8 by -1 or True at 28
+Thread 0 for 1 win 9 by -1 or True at 36
+Thread 0 enter 1
+Thread 0 change 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 0 inc
+Thread 0 change 1 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 0 exit
+Thread 0 set
+Thread 0 lock 3
+Thread 0 for 3 win 1 by -1 or True at 0
+Thread 0 for 3 win 2 by -1 or True at 1
+Thread 1 change
+Thread 1 lock 1
+Thread 1 for 1 win 0 by -1 or False at 0
+Thread 0 for 3 win 3 by -1 or True at 3
+Thread 1 for 1 win 2 by -1 or True at 2
+Thread 1 for 1 win 3 by -1 or True at 4
+Thread 0 for 3 win 4 by -1 or True at 6
+Thread 0 for 3 win 5 by -1 or True at 10
+Thread 0 for 3 win 6 by -1 or True at 15
+Thread 0 for 3 win 7 by -1 or True at 21
+Thread 0 for 3 win 8 by -1 or True at 28
+Thread 1 for 1 win 4 by -1 or True at 7
+Thread 1 for 1 win 5 by -1 or True at 11
+Thread 1 for 1 win 6 by -1 or True at 16
+Thread 1 for 1 win 7 by -1 or True at 22
+Thread 1 for 1 win 8 by -1 or True at 29
+Thread 0 for 3 win 9 by -1 or True at 36
+Thread 0 enter 3
+Thread 0 set 3 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 0 set 3 state= [0,1,0,4,0,0,0,0,0,0,0,0,0,0,0]
+Thread 0 exit
+Thread 0 get
+Thread 0 lock 3
+Thread 0 for 3 win 1 by -1 or True at 0
+Thread 0 for 3 win 2 by -1 or True at 1
+Thread 0 for 3 win 3 by -1 or True at 3
+Thread 0 for 3 win 4 by -1 or True at 6
+Thread 1 for 1 win 9 by -1 or True at 37
+Thread 1 enter 1
+Thread 1 change 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 1 inc
+Thread 1 change 1 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 1 exit
+Thread 1 set
+Thread 1 lock 4
+Thread 1 for 4 win 0 by -1 or False at 0
+Thread 1 for 4 win 2 by -1 or True at 2
+Thread 1 for 4 win 3 by -1 or True at 4
+Thread 2 change
+Thread 2 lock 1
+Thread 2 for 1 win 0 by -1 or False at 1
+Thread 2 for 1 win 1 by -1 or False at 2
+Thread 2 for 1 win 3 by -1 or True at 5
+Thread 0 for 3 win 5 by -1 or True at 10
+Thread 0 for 3 win 6 by -1 or True at 15
+Thread 0 for 3 win 7 by -1 or True at 21
+Thread 0 for 3 win 8 by -1 or True at 28
+Thread 0 for 3 win 9 by -1 or True at 36
+Thread 0 enter 3
+Thread 0 get 3 state= [0,1,0,4,0,0,0,0,0,0,0,0,0,0,0]
+Thread 0 get 3 state= [0,1,0,4,0,0,0,0,0,0,0,0,0,0,0]
+Thread 0 exit
+Thread 1 for 4 win 4 by -1 or True at 7
+Thread 1 for 4 win 5 by -1 or True at 11
+Thread 1 for 4 win 6 by -1 or True at 16
+Thread 1 for 4 win 7 by -1 or True at 22
+Thread 1 for 4 win 8 by -1 or True at 29
+Thread 2 for 1 win 4 by -1 or True at 8
+Thread 2 for 1 win 5 by -1 or True at 12
+Thread 2 for 1 win 6 by -1 or True at 17
+Thread 2 for 1 win 7 by -1 or True at 23
+Thread 2 for 1 win 8 by -1 or True at 30
+4
+Thread 1 for 4 win 9 by -1 or True at 37
+Thread 1 enter 4
+Thread 1 set 4 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 1 set 4 state= [0,1,0,0,4,0,0,0,0,0,0,0,0,0,0]
+Thread 1 exit
+Thread 1 get
+Thread 1 lock 4
+Thread 1 for 4 win 0 by -1 or False at 0
+Thread 1 for 4 win 2 by -1 or True at 2
+Thread 1 for 4 win 3 by -1 or True at 4
+Thread 1 for 4 win 4 by -1 or True at 7
+Thread 2 for 1 win 9 by -1 or True at 38
+Thread 2 enter 1
+Thread 2 change 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 2 inc
+Thread 2 change 1 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 2 exit
+Thread 2 set
+Thread 2 lock 5
+Thread 2 for 5 win 0 by -1 or False at 1
+Thread 2 for 5 win 1 by -1 or False at 2
+Thread 2 for 5 win 3 by -1 or True at 5
+Thread 3 change
+Thread 3 lock 1
+Thread 3 for 1 win 0 by -1 or False at 3
+Thread 3 for 1 win 1 by -1 or False at 4
+Thread 3 for 1 win 2 by -1 or False at 5
+Thread 1 for 4 win 5 by -1 or True at 11
+Thread 1 for 4 win 6 by -1 or True at 16
+Thread 2 for 5 win 4 by -1 or True at 8
+Thread 2 for 5 win 5 by -1 or True at 12
+Thread 3 for 1 win 4 by -1 or True at 9
+Thread 3 for 1 win 5 by -1 or True at 13
+Thread 1 for 4 win 7 by -1 or True at 22
+Thread 1 for 4 win 8 by -1 or True at 29
+Thread 1 for 4 win 9 by -1 or True at 37
+Thread 1 enter 4
+Thread 1 get 4 state= [0,1,0,0,4,0,0,0,0,0,0,0,0,0,0]
+Thread 1 get 4 state= [0,1,0,0,4,0,0,0,0,0,0,0,0,0,0]
+Thread 1 exit
+Thread 2 for 5 win 6 by -1 or True at 17
+Thread 2 for 5 win 7 by -1 or True at 23
+Thread 2 for 5 win 8 by -1 or True at 30
+Thread 2 for 5 win 9 by -1 or True at 38
+Thread 2 enter 5
+Thread 2 set 5 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 2 set 5 state= [0,1,0,0,0,4,0,0,0,0,0,0,0,0,0]
+Thread 2 exit
+Thread 2 get
+Thread 2 lock 5
+Thread 2 for 5 win 0 by -1 or False at 1
+Thread 2 for 5 win 1 by -1 or False at 2
+Thread 2 for 5 win 3 by -1 or True at 5
+Thread 2 for 5 win 4 by -1 or True at 8
+Thread 3 for 1 win 6 by -1 or True at 18
+Thread 3 for 1 win 7 by -1 or True at 24
+Thread 3 for 1 win 8 by -1 or True at 31
+Thread 3 for 1 win 9 by -1 or True at 39
+Thread 3 enter 1
+Thread 3 change 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 3 inc
+Thread 3 change 1 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 3 exit
+Thread 3 set
+Thread 3 lock 6
+Thread 3 for 6 win 0 by -1 or False at 3
+Thread 3 for 6 win 1 by -1 or False at 4
+Thread 3 for 6 win 2 by -1 or False at 5
+Thread 4 change
+Thread 4 lock 1
+Thread 4 for 1 win 0 by -1 or False at 6
+Thread 4 for 1 win 1 by -1 or False at 7
+Thread 4 for 1 win 2 by -1 or False at 8
+4
+Thread 2 for 5 win 5 by -1 or True at 12
+Thread 2 for 5 win 6 by -1 or True at 17
+Thread 2 for 5 win 7 by -1 or True at 23
+Thread 2 for 5 win 8 by -1 or True at 30
+Thread 3 for 6 win 4 by -1 or True at 9
+Thread 3 for 6 win 5 by -1 or True at 13
+Thread 3 for 6 win 6 by -1 or True at 18
+Thread 3 for 6 win 7 by -1 or True at 24
+Thread 4 for 1 win 3 by -1 or False at 9
+Thread 4 for 1 win 5 by -1 or True at 14
+Thread 4 for 1 win 6 by -1 or True at 19
+Thread 2 for 5 win 9 by -1 or True at 38
+Thread 2 enter 5
+Thread 2 get 5 state= [0,1,0,0,0,4,0,0,0,0,0,0,0,0,0]
+Thread 2 get 5 state= [0,1,0,0,0,4,0,0,0,0,0,0,0,0,0]
+Thread 2 exit
+Thread 3 for 6 win 8 by -1 or True at 31
+Thread 4 for 1 win 7 by -1 or True at 25
+Thread 4 for 1 win 8 by -1 or True at 32
+4
+Thread 3 for 6 win 9 by -1 or True at 39
+Thread 3 enter 6
+Thread 3 set 6 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 3 set 6 state= [0,1,0,0,0,0,4,0,0,0,0,0,0,0,0]
+Thread 3 exit
+Thread 3 get
+Thread 3 lock 6
+Thread 3 for 6 win 0 by -1 or False at 3
+Thread 3 for 6 win 1 by -1 or False at 4
+Thread 3 for 6 win 2 by -1 or False at 5
+Thread 3 for 6 win 4 by -1 or True at 9
+Thread 4 for 1 win 9 by -1 or True at 40
+Thread 4 enter 1
+Thread 4 change 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 4 inc
+Thread 4 change 1 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 4 exit
+Thread 4 set
+Thread 4 lock 7
+Thread 4 for 7 win 0 by -1 or False at 6
+Thread 4 for 7 win 1 by -1 or False at 7
+Thread 4 for 7 win 2 by -1 or False at 8
+Thread 5 change
+Thread 5 lock 1
+Thread 5 for 1 win 0 by -1 or False at 10
+Thread 5 for 1 win 1 by -1 or False at 11
+Thread 5 for 1 win 2 by -1 or False at 12
+Thread 3 for 6 win 5 by -1 or True at 13
+Thread 3 for 6 win 6 by -1 or True at 18
+Thread 3 for 6 win 7 by -1 or True at 24
+Thread 3 for 6 win 8 by -1 or True at 31
+Thread 3 for 6 win 9 by -1 or True at 39
+Thread 3 enter 6
+Thread 3 get 6 state= [0,1,0,0,0,0,4,0,0,0,0,0,0,0,0]
+Thread 3 get 6 state= [0,1,0,0,0,0,4,0,0,0,0,0,0,0,0]
+Thread 4 for 7 win 3 by -1 or False at 9
+Thread 4 for 7 win 5 by -1 or True at 14
+Thread 4 for 7 win 6 by -1 or True at 19
+Thread 4 for 7 win 7 by -1 or True at 25
+Thread 4 for 7 win 8 by -1 or True at 32
+Thread 5 for 1 win 3 by -1 or False at 13
+Thread 5 for 1 win 4 by -1 or False at 14
+Thread 5 for 1 win 6 by -1 or True at 20
+Thread 5 for 1 win 7 by -1 or True at 26
+Thread 5 for 1 win 8 by -1 or True at 33
+Thread 3 exit
+Thread 4 for 7 win 9 by -1 or True at 40
+Thread 4 enter 7
+Thread 4 set 7 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 4 set 7 state= [0,1,0,0,0,0,0,4,0,0,0,0,0,0,0]
+Thread 4 exit
+4
+Thread 4 get
+Thread 4 lock 7
+Thread 4 for 7 win 0 by -1 or False at 6
+Thread 4 for 7 win 1 by -1 or False at 7
+Thread 4 for 7 win 2 by -1 or False at 8
+Thread 4 for 7 win 3 by -1 or False at 9
+Thread 5 for 1 win 9 by -1 or True at 41
+Thread 5 enter 1
+Thread 5 change 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 5 inc
+Thread 5 change 1 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 5 exit
+Thread 5 set
+Thread 5 lock 8
+Thread 5 for 8 win 0 by -1 or False at 10
+Thread 5 for 8 win 1 by -1 or False at 11
+Thread 5 for 8 win 2 by -1 or False at 12
+Thread 6 change
+Thread 6 lock 1
+Thread 6 for 1 win 0 by -1 or False at 15
+Thread 6 for 1 win 1 by -1 or False at 16
+Thread 6 for 1 win 2 by -1 or False at 17
+Thread 4 for 7 win 5 by -1 or True at 14
+Thread 4 for 7 win 6 by -1 or True at 19
+Thread 4 for 7 win 7 by -1 or True at 25
+Thread 4 for 7 win 8 by -1 or True at 32
+Thread 4 for 7 win 9 by -1 or True at 40
+Thread 4 enter 7
+Thread 4 get 7 state= [0,1,0,0,0,0,0,4,0,0,0,0,0,0,0]
+Thread 4 get 7 state= [0,1,0,0,0,0,0,4,0,0,0,0,0,0,0]
+Thread 5 for 8 win 3 by -1 or False at 13
+Thread 5 for 8 win 4 by -1 or False at 14
+Thread 5 for 8 win 6 by -1 or True at 20
+Thread 5 for 8 win 7 by -1 or True at 26
+Thread 5 for 8 win 8 by -1 or True at 33
+Thread 6 for 1 win 3 by -1 or False at 18
+Thread 6 for 1 win 4 by -1 or False at 19
+Thread 6 for 1 win 5 by -1 or False at 20
+Thread 6 for 1 win 7 by -1 or True at 27
+Thread 6 for 1 win 8 by -1 or True at 34
+Thread 4 exit
+Thread 5 for 8 win 9 by -1 or True at 41
+Thread 5 enter 8
+Thread 5 set 8 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 5 set 8 state= [0,1,0,0,0,0,0,0,4,0,0,0,0,0,0]
+Thread 5 exit
+Thread 5 get
+Thread 5 lock 8
+Thread 5 for 8 win 0 by -1 or False at 10
+Thread 6 for 1 win 9 by -1 or True at 42
+Thread 6 enter 1
+Thread 6 change 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 6 inc
+Thread 6 change 1 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 6 exit
+Thread 6 set
+Thread 6 lock 9
+Thread 7 change
+Thread 7 lock 1
+4
+Thread 5 for 8 win 1 by -1 or False at 11
+Thread 5 for 8 win 2 by -1 or False at 12
+Thread 5 for 8 win 3 by -1 or False at 13
+Thread 6 for 9 win 0 by -1 or False at 15
+Thread 6 for 9 win 1 by -1 or False at 16
+Thread 6 for 9 win 2 by -1 or False at 17
+Thread 7 for 1 win 0 by -1 or False at 21
+Thread 7 for 1 win 1 by -1 or False at 22
+Thread 7 for 1 win 2 by -1 or False at 23
+Thread 5 for 8 win 4 by -1 or False at 14
+Thread 5 for 8 win 6 by -1 or True at 20
+Thread 5 for 8 win 7 by -1 or True at 26
+Thread 5 for 8 win 8 by -1 or True at 33
+Thread 5 for 8 win 9 by -1 or True at 41
+Thread 5 enter 8
+Thread 5 get 8 state= [0,1,0,0,0,0,0,0,4,0,0,0,0,0,0]
+Thread 6 for 9 win 3 by -1 or False at 18
+Thread 6 for 9 win 4 by -1 or False at 19
+Thread 6 for 9 win 5 by -1 or False at 20
+Thread 6 for 9 win 7 by -1 or True at 27
+Thread 6 for 9 win 8 by -1 or True at 34
+Thread 7 for 1 win 3 by -1 or False at 24
+Thread 7 for 1 win 4 by -1 or False at 25
+Thread 7 for 1 win 5 by -1 or False at 26
+Thread 7 for 1 win 6 by -1 or False at 27
+Thread 5 get 8 state= [0,1,0,0,0,0,0,0,4,0,0,0,0,0,0]
+Thread 5 exit
+Thread 7 for 1 win 8 by -1 or True at 35
+4
+Thread 6 for 9 win 9 by -1 or True at 42
+Thread 6 enter 9
+Thread 6 set 9 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 6 set 9 state= [0,1,0,0,0,0,0,0,0,4,0,0,0,0,0]
+Thread 6 exit
+Thread 6 get
+Thread 6 lock 9
+Thread 6 for 9 win 0 by -1 or False at 15
+Thread 6 for 9 win 1 by -1 or False at 16
+Thread 6 for 9 win 2 by -1 or False at 17
+Thread 7 for 1 win 9 by -1 or True at 43
+Thread 7 enter 1
+Thread 7 change 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 7 inc
+Thread 7 change 1 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 7 exit
+Thread 7 set
+Thread 7 lock 10
+Thread 7 for 10 win 0 by -1 or False at 21
+Thread 7 for 10 win 1 by -1 or False at 22
+Thread 8 change
+Thread 8 lock 1
+Thread 8 for 1 win 0 by -1 or False at 28
+Thread 8 for 1 win 1 by -1 or False at 29
+Thread 6 for 9 win 3 by -1 or False at 18
+Thread 7 for 10 win 2 by -1 or False at 23
+Thread 6 for 9 win 4 by -1 or False at 19
+Thread 6 for 9 win 5 by -1 or False at 20
+Thread 6 for 9 win 7 by -1 or True at 27
+Thread 6 for 9 win 8 by -1 or True at 34
+Thread 6 for 9 win 9 by -1 or True at 42
+Thread 6 enter 9
+Thread 6 get 9 state= [0,1,0,0,0,0,0,0,0,4,0,0,0,0,0]
+Thread 7 for 10 win 3 by -1 or False at 24
+Thread 7 for 10 win 4 by -1 or False at 25
+Thread 7 for 10 win 5 by -1 or False at 26
+Thread 7 for 10 win 6 by -1 or False at 27
+Thread 7 for 10 win 8 by -1 or True at 35
+Thread 8 for 1 win 2 by -1 or False at 30
+Thread 8 for 1 win 3 by -1 or False at 31
+Thread 8 for 1 win 4 by -1 or False at 32
+Thread 8 for 1 win 5 by -1 or False at 33
+Thread 8 for 1 win 6 by -1 or False at 34
+Thread 8 for 1 win 7 by -1 or False at 35
+Thread 6 get 9 state= [0,1,0,0,0,0,0,0,0,4,0,0,0,0,0]
+Thread 6 exit
+Thread 7 for 10 win 9 by -1 or True at 43
+Thread 7 enter 10
+Thread 7 set 10 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 7 set 10 state= [0,1,0,0,0,0,0,0,0,0,4,0,0,0,0]
+Thread 7 exit
+Thread 7 get
+Thread 7 lock 10
+Thread 7 for 10 win 0 by -1 or False at 21
+Thread 7 for 10 win 1 by -1 or False at 22
+Thread 7 for 10 win 2 by -1 or False at 23
+Thread 7 for 10 win 3 by -1 or False at 24
+Thread 8 for 1 win 9 by -1 or True at 44
+Thread 8 enter 1
+Thread 8 change 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 8 inc
+Thread 8 change 1 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 8 exit
+Thread 8 set
+Thread 8 lock 11
+Thread 8 for 11 win 0 by -1 or False at 28
+Thread 8 for 11 win 1 by -1 or False at 29
+Thread 8 for 11 win 2 by -1 or False at 30
+Thread 9 change
+Thread 9 lock 1
+Thread 9 for 1 win 0 by -1 or False at 36
+Thread 9 for 1 win 1 by -1 or False at 37
+4
+Thread 8 for 11 win 3 by -1 or False at 31
+Thread 9 for 1 win 2 by -1 or False at 38
+Thread 7 for 10 win 4 by -1 or False at 25
+Thread 7 for 10 win 5 by -1 or False at 26
+Thread 7 for 10 win 6 by -1 or False at 27
+Thread 7 for 10 win 8 by -1 or True at 35
+Thread 8 for 11 win 4 by -1 or False at 32
+Thread 8 for 11 win 5 by -1 or False at 33
+Thread 8 for 11 win 6 by -1 or False at 34
+Thread 8 for 11 win 7 by -1 or False at 35
+Thread 9 for 1 win 3 by -1 or False at 39
+Thread 9 for 1 win 4 by -1 or False at 40
+Thread 9 for 1 win 5 by -1 or False at 41
+Thread 9 for 1 win 6 by -1 or False at 42
+Thread 9 for 1 win 7 by -1 or False at 43
+Thread 7 for 10 win 9 by -1 or True at 43
+Thread 7 enter 10
+Thread 7 get 10 state= [0,1,0,0,0,0,0,0,0,0,4,0,0,0,0]
+Thread 7 get 10 state= [0,1,0,0,0,0,0,0,0,0,4,0,0,0,0]
+Thread 7 exit
+Thread 8 for 11 win 9 by -1 or True at 44
+Thread 8 enter 11
+Thread 8 set 11 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 8 set 11 state= [0,1,0,0,0,0,0,0,0,0,0,4,0,0,0]
+Thread 8 exit
+Thread 8 get
+Thread 8 lock 11
+Thread 8 for 11 win 0 by -1 or False at 28
+Thread 8 for 11 win 1 by -1 or False at 29
+Thread 8 for 11 win 2 by -1 or False at 30
+Thread 9 for 1 win 8 by -1 or False at 44
+Thread 9 enter 1
+Thread 9 change 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 9 inc
+Thread 9 change 1 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 9 exit
+Thread 9 set
+Thread 9 lock 12
+Thread 9 for 12 win 0 by -1 or False at 36
+Thread 9 for 12 win 1 by -1 or False at 37
+Thread 9 for 12 win 2 by -1 or False at 38
+4
+Thread 8 for 11 win 3 by -1 or False at 31
+Thread 8 for 11 win 4 by -1 or False at 32
+Thread 8 for 11 win 5 by -1 or False at 33
+Thread 9 for 12 win 3 by -1 or False at 39
+Thread 9 for 12 win 4 by -1 or False at 40
+Thread 8 for 11 win 6 by -1 or False at 34
+Thread 8 for 11 win 7 by -1 or False at 35
+Thread 9 for 12 win 5 by -1 or False at 41
+Thread 9 for 12 win 6 by -1 or False at 42
+Thread 9 for 12 win 7 by -1 or False at 43
+Thread 8 for 11 win 9 by -1 or True at 44
+Thread 8 enter 11
+Thread 8 get 11 state= [0,1,0,0,0,0,0,0,0,0,0,4,0,0,0]
+Thread 8 get 11 state= [0,1,0,0,0,0,0,0,0,0,0,4,0,0,0]
+Thread 8 exit
+4
+Thread 9 for 12 win 8 by -1 or False at 44
+Thread 9 enter 12
+Thread 9 set 12 state= [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 9 set 12 state= [0,1,0,0,0,0,0,0,0,0,0,0,4,0,0]
+Thread 9 exit
+Thread 9 get
+Thread 9 lock 12
+Thread 9 for 12 win 0 by -1 or False at 36
+Thread 9 for 12 win 1 by -1 or False at 37
+Thread 9 for 12 win 2 by -1 or False at 38
+Thread 9 for 12 win 3 by -1 or False at 39
+Thread 9 for 12 win 4 by -1 or False at 40
+Thread 9 for 12 win 5 by -1 or False at 41
+Thread 9 for 12 win 6 by -1 or False at 42
+Thread 9 for 12 win 7 by -1 or False at 43
+Thread 9 for 12 win 8 by -1 or False at 44
+Thread 9 enter 12
+Thread 9 get 12 state= [0,1,0,0,0,0,0,0,0,0,0,0,4,0,0]
+Thread 9 get 12 state= [0,1,0,0,0,0,0,0,0,0,0,0,4,0,0]
+Thread 9 exit
+4
+Thread 0 lock 1
+Thread 0 for 1 win 1 by -1 or True at 0
+Thread 0 for 1 win 2 by -1 or True at 1
+Thread 0 for 1 win 3 by -1 or True at 3
+Thread 0 for 1 win 4 by -1 or True at 6
+Thread 0 for 1 win 5 by -1 or True at 10
+Thread 0 for 1 win 6 by -1 or True at 15
+Thread 0 for 1 win 7 by -1 or True at 21
+Thread 0 for 1 win 8 by -1 or True at 28
+Thread 0 for 1 win 9 by -1 or True at 36
+Thread 0 enter 1
+Thread 0 get 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 0 get 1 state= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+Thread 0 exit
+0
