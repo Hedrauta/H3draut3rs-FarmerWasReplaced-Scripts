@@ -1,10 +1,9 @@
 from __builtins__ import *
 from helper import *
-set_world_size(32)
+set_world_size(3)
 si = get_world_size()
 num = num_unlocked(Unlocks.Mazes)
 ws = si*2**(num-1)
-goto()
 clear()
 #Values needed for script
 From = South
@@ -72,6 +71,7 @@ def dec(Dir, de):
 	mox,moy = get_pos_x()+val_dirs[Dir]["x"], get_pos_y()+val_dirs[Dir]["y"]
 	return (can_move(Dir) and not (mox, moy) in de)
 
+
 #Prepare Lab:
 plant(Entities.Bush)
 while not can_harvest():
@@ -90,182 +90,213 @@ while loop < 300:
 		tmx = treasurex - mx
 		tmy = treasurey - my
 		if abs(tmx) > abs(tmy):
-			if tmx > 0 and dec(East, dead_ends):
-				if not From == East and dec(East, dead_ends):
-					move_x_p()
-				elif tmy > 0:
-					if not From == North and dec(North, dead_ends):
-						move_y_p()
-					elif dec(South, dead_ends):
-						if not From == South and can_move(South):
-							move_y_n()
+			if tmx >= 0 and dec(East, dead_ends) and not From == East:
+				if move_x_p():
+					pass
+				elif tmy >= 0 and dec(North, dead_ends) and not From == North:
+					if move_y_p():
+						pass
+					elif dec(South, dead_ends) and not From == South:
+						if move_y_n():
+							pass
+						elif dec(West, dead_ends) and not From == West:
+							if move_x_n():
+								pass
+							else:
+								move(From)
+					elif dec(West, dead_ends) and not From == West:
+						if move_x_n():
+							pass
 						else:
-							cx,cy = get_pos_x(), get_pos_y()
-							if not (treasurex == cx and treasurey == cy):
-								move_x_n()
-					else:
-						cx,cy = get_pos_x(), get_pos_y()
-						if not (treasurex == cx and treasurey == cy):
-							move_x_p()
-				elif tmy <= 0:
-					if not From == South and dec(South, dead_ends):
-						move_y_n()
-					elif dec(North, dead_ends):
-						if not From == North and can_move(North):
-							move_y_p()
+							move(From)
+				elif dec(South, dead_ends) and not From == South:
+					if move_y_n():
+						pass
+					elif dec(West, dead_ends) and not From == West:
+						if move_x_n():
+							pass
 						else:
-							cx,cy = get_pos_x(), get_pos_y()
-							if not (treasurex == cx and treasurey == cy):
-								move_x_n()
+							move(From)
+				elif dec(West, dead_ends) and not From == West:
+					if move_x_n():
+						pass
 					else:
-						cx,cy = get_pos_x(), get_pos_y()
-						if not (treasurex == cx and treasurey == cy):
-							move_x_p()
+						move(From)
 				else:
-					cx,cy = get_pos_x(), get_pos_y()
-					if not (treasurex == cx and treasurey == cy):
-						move_x_n()
-			elif tmx <= 0 and dec(West, dead_ends):
-				if not From == West and dec(West, dead_ends):
-					move_x_n()
-				elif tmy > 0:
-					if not From == North and dec(North, dead_ends):
-						move_y_p()
-					elif dec(South, dead_ends):
-						if not From == South and can_move(South):
-							move_y_n()
+						move(From)
+			elif tmx < 0 and dec(West, dead_ends) and not From == West:
+				if move_x_n():
+					pass
+				elif tmy >= 0 and dec(North, dead_ends) and not From == North:
+					if move_y_p():
+						pass
+					elif dec(South, dead_ends) and not From == South:
+						if move_y_n():
+							pass
+						elif dec(East, dead_ends) and not From == East:
+							if move_x_p():
+								pass
+							else:
+								move(From)
+					elif dec(East, dead_ends) and not From == East:
+						if move_x_p():
+							pass
 						else:
-							cx,cy = get_pos_x(), get_pos_y()
-							if not (treasurex == cx and treasurey == cy):
-								move_x_p()
+							move(From)
+				elif dec(South, dead_ends) and not From == South:
+					if move_y_n():
+						pass
+					elif dec(East, dead_ends) and not From == East:
+						if move_x_p():
+							pass
+						else:
+							move(From)
+				elif dec(East, dead_ends) and not From == East:
+					if move_x_p():
+						pass
 					else:
-						cx,cy = get_pos_x(), get_pos_y()
-						if not (treasurex == cx and treasurey == cy):
-							move_x_n()
-				elif tmy <= 0:
-					if not From == South and dec(South, dead_ends):
-						move_y_n()
-					elif dec(North, dead_ends):
-						if not From == North and can_move(North):
-							move_y_p()
-						else:
-							cx,cy = get_pos_x(), get_pos_y()
-							if not (treasurex == cx and treasurey == cy):
-								move_x_p()
-					else: 
-						cx,cy = get_pos_x(), get_pos_y()
-						if not (treasurex == cx and treasurey == cy):
-							move_x_n()
+						move(From)
 				else:
-					cx,cy = get_pos_x(), get_pos_y()
-					if not (treasurex == cx and treasurey == cy):
-						move_x_p()
-			elif dec(South, dead_ends) and not From == South:
-				move_y_n()
+						move(From)
 			elif dec(North, dead_ends) and not From == North:
-				move_y_p()
+				if move_y_p():
+					pass
+				elif dec(South, dead_ends) and not From == South:
+					if move_y_n():
+						pass
+					else:
+						move(From)
+			elif dec(South, dead_ends) and not From == South:
+					if move_y_n():
+						pass
+					else:
+						move(From)
+			elif tmx >= 0 and dec(East, dead_ends) and not From == East:
+				if move_x_p():
+					pass
+				elif dec(West, dead_ends):
+					if move_x_n():
+						pass
+					else:
+						move(From)
 			elif dec(West, dead_ends) and not From == West:
-				move_x_n()
-			elif dec(East, dead_ends) and not From == East:
-				move_x_p()
-			else:
-				quick_print("X: Dead end detected, going ",From,(mx, my), dead_ends)
-				cx,cy = get_pos_x(), get_pos_y()
-				if not (treasurex == cx and treasurey == cy):
+				if move_x_n():
+					pass
+				else:
 					move(From)
-
+			elif dec(East, dead_ends) and not From == East:
+				if move_x_p():
+					pass
+				else:
+					move(From)
+			else:
+				move(From)
 		else:
-			if tmy > 0 and dec(North, dead_ends):
-				if not From == North and dec(North, dead_ends):
-					move_y_p()
-				elif tmx > 0:
-					if not From == East and dec(East, dead_ends):
-						move_x_p()
-					elif dec(West, dead_ends):
-						if not From == West and can_move(West):
-							cx,cy = get_pos_x(), get_pos_y()
-							if not (treasurex == cx and treasurey == cy):
-								move_x_n()
+			if tmy >= 0 and dec(North, dead_ends) and not From == North:
+				if move_y_p():
+					pass
+				elif tmx >= 0 and dec(East, dead_ends) and not From == East:
+					if move_x_p():
+						pass
+					elif dec(West, dead_ends) and not From == West:
+						if move_x_n():
+							pass
+						elif dec(South, dead_ends) and not From == South:
+							if move_y_n():
+								pass
+							else:
+								move(From)
+					elif dec(South, dead_ends) and not From == South:
+						if move_y_n():
+							pass
 						else:
-							cx,cy = get_pos_x(), get_pos_y()
-							if not (treasurex == cx and treasurey == cy):
-								move_y_n()
-					else:
-						cx,cy = get_pos_x(), get_pos_y()
-						if not (treasurex == cx and treasurey == cy):
-							move_y_n()
-				elif tmx <= 0:
-					if not From == West and dec(West, dead_ends):
-						move_x_n()
-					elif dec(East, dead_ends):
-						if not From == East and can_move(East):
-							move_x_p()
+							move(From)
+				elif dec(West, dead_ends) and not From == West:
+					if move_x_n():
+						pass
+					elif dec(South, dead_ends) and not From == South:
+						if move_y_n():
+							pass
 						else:
-							cx,cy = get_pos_x(), get_pos_y()
-							if not (treasurex == cx and treasurey == cy):
-								move_y_n()
+							move(From)
+				elif dec(South, dead_ends) and not From == South:
+					if move_y_n():
+						pass
 					else:
-						cx,cy = get_pos_x(), get_pos_y()
-						if not (treasurex == cx and treasurey == cy):
-							move_y_p()
-				else: 
-					cx,cy = get_pos_x(), get_pos_y()
-					if not (treasurex == cx and treasurey == cy):
-						move_y_n()
-			elif tmy <= 0 and dec(South, dead_ends):
-				if not From == South and dec(South, dead_ends):
-					move_y_n()
-				elif tmx > 0:
-					if not From == East and dec(East, dead_ends):
-						move_x_p()
-					elif dec(West, dead_ends):
-						if not From == West and can_move(West):
-							move_x_n()
-						else:
-							cx,cy = get_pos_x(), get_pos_y()
-							if not (treasurex == cx and treasurey == cy):
-								move_y_p()
-					else:
-						cx,cy = get_pos_x(), get_pos_y()
-						if not (treasurex == cx and treasurey == cy):
-							move_y_p()
-				elif tmx <= 0:
-					if not From == West and dec(West, dead_ends):
-						move_x_n()
-					elif dec(East, dead_ends):
-						if not From == East and can_move(East):
-							move_x_p()
-						else:
-							cx,cy = get_pos_x(), get_pos_y()
-							if not (treasurex == cx and treasurey == cy):
-								move_y_p()
-					else:
-						cx,cy = get_pos_x(), get_pos_y()
-						if not (treasurex == cx and treasurey == cy):
-							move_y_n()
+						move(From)
 				else:
-					cx,cy = get_pos_x(), get_pos_y()
-					if not (treasurex == cx and treasurey == cy):
-						move_y_p()
+						move(From)
+			elif tmy < 0 and dec(South, dead_ends) and not From == South:
+				if move_y_n():
+					pass
+				elif tmy >= 0 and dec(East, dead_ends) and not From == East:
+					if move_x_p():
+						pass
+					elif dec(West, dead_ends) and not From == West:
+						if move_x_n():
+							pass
+						elif dec(North, dead_ends) and not From == North:
+							if move_y_p():
+								pass
+							else:
+								move(From)
+					elif dec(North, dead_ends) and not From == North:
+						if move_y_p():
+							pass
+						else:
+							move(From)
+				elif dec(West, dead_ends) and not From == West:
+					if move_x_n():
+						pass
+					elif dec(North, dead_ends) and not From == North:
+						if move_y_p():
+							pass
+						else:
+							move(From)
+				elif dec(North, dead_ends) and not From == North:
+					if move_y_p():
+						pass
+					else:
+						move(From)
+				else:
+						move(From)
 			elif dec(East, dead_ends) and not From == East:
-				move_x_p()
+				if move_x_p():
+					pass
+				elif dec(West, dead_ends) and not From == West:
+					if move_x_n():
+						pass
+					else:
+						move(From)
 			elif dec(West, dead_ends) and not From == West:
-				move_x_n()
+					if move_x_n():
+						pass
+					else:
+						move(From)
+			elif tmy >= 0 and dec(North, dead_ends) and not From == North:
+				if move_y_p():
+					pass
+				elif dec(South, dead_ends):
+					if move_y_n():
+						pass
+					else:
+						move(From)
 			elif dec(South, dead_ends) and not From == South:
-				move_y_n()
-			elif dec(North, dead_ends) and not From == North:
-				move_y_p()
-			else:
-				quick_print("Y: Dead end detected, going ",From,(mx, my), dead_ends)
-				cx,cy = get_pos_x(), get_pos_y()
-				if not (treasurex == cx and treasurey == cy):
+				if move_y_n():
+					pass
+				else:
 					move(From)
-		ld = len(dead_ends)
+			elif dec(North, dead_ends) and not From == North:
+				if move_y_p():
+					pass
+				else:
+					move(From)
+			else:
+				move(From)
 		mx, my = get_pos_x(), get_pos_y()
 		dead_ends = ded(dead_ends, From)
 		on_treasure = treasurex == mx and treasurey == my
-		if not on_treasure and (len(dead_ends) > ld):
-			move(From)
+		quick_print(on_treasure, From, (mx, my), (treasurex, treasurey), (tmx, tmy), "| dead:", dead_ends)
 	if loop < 300:
 		do_maze()
 		loop += 1
