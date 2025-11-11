@@ -60,6 +60,8 @@ while True:
 		on_apple = applex == mx and appley == my
 	tail_length += 1
 	if (wosi**2) == tail_length:
-		break
+		change_hat(Hats.Brown_Hat)
+		change_hat(Hats.Dinosaur_Hat)
+		tail_length = 2
 #harvest():
 change_hat(Hats.Brown_Hat)
